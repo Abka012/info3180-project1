@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main %}
+<section class="property-details-page">
+  <article class="property-details-card">
+    <div class="property-details-image-wrap">
+      <img src="{{ url_for('static', filename='uploads/' ~ property.photo) }}" alt="{{ property.title }}" class="property-details-image">
+    </div>
+
+    <div class="property-details-content">
+      <h1>{{ property.title }}</h1>
+      <div class="details-badges">
+        <span class="badge bg-primary">${{ "{:,}".format(property.price) }}</span>
+        <span class="badge bg-warning text-dark">{{ property.property_type }}</span>
+      </div>
+
+      <p class="description">{{ property.description }}</p>
+      <p><strong>{{ property.bedrooms }}</strong> Bedrooms</p>
+      <p><strong>{{ property.bathrooms }}</strong> Bathrooms</p>
+      <p>{{ property.location }}</p>
+
+      <button class="btn btn-success">Email Realtor</button>
+    </div>
+  </article>
+</section>
+{% endblock %}
